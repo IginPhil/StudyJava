@@ -1,0 +1,18 @@
+  public static void main(String[] args) {
+    String f1 = "____________'\"___";
+    String f2 = "___________---____";
+    String f3 = "_______/\\_|_|____";
+    String f4 = "______/__\\|_|____";
+    String f5 = "_____/____\\_|____";
+    String f6 = "____/______\\|____";
+    String f7 = "___/__[__]__\\____";
+    String f8 = "__/|________|\\___";
+    String f9 = "_/_|________|_\\__";
+    String f10 = "___|__----__|_____";
+    String f11 = "___|__| |__|_____";
+    System.out.println();
+    System.out.print(
+        f1 + "\n" + f2 + "\n" + f3 + "\n" + f4 + "\n" + f5 + "\n" + f6 + "\n" + f7 + "\n" + f8
+            + "\n" + f9 + "\n" + f10 + "\n" + f11);
+  }
+}
