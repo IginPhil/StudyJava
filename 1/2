@@ -1,0 +1,83 @@
+public class Main {
+  public static void main(String[] args) {
+  
+    System.out.println("Задание 1");
+    String city = "Москва";
+    Long population = 17_000_000L;
+    double unemploymentRate = 0.46;
+    System.out.println("Население города " + city + " составляет " + population
+        + " человек, процент безработицы равен " + unemploymentRate + ".");
+        
+    System.out.println("Задание 2");
+    char section = 'A';
+    int seat = 14;
+    int ticketPrice = 2500;
+    System.out.println(
+        "Билет на футбол, секция " + section + "," + " место " + seat + "," + " стоимость "
+            + ticketPrice
+            + " рублей.");
+            
+    System.out.println("Задание 3");
+    String name = "Филипп";
+    int age = 32;
+    double growth = 184.5;
+    System.out.println("Его зовут " + name + "," +
+        "ему " + age + " года" + "," + " его рост " + growth + "см.");
+    System.out.println("Задание 4");
+    char symbols1 = 'A';
+    char symbols2 = 'M';
+    char symbols3 = 'Р';
+    int number = 127;
+    double weight = 3000;
+    System.out.println(
+        "Автомобиль с номером: " + symbols1 + number + symbols2 + symbols3 + "," + " весит "
+            + weight + " кг.");
+            
+    System.out.println("Задание 5");
+    String companyName = "MMM";
+    long annualIncome = 15_000_000_000L;
+    int share = 35;
+    System.out.println(
+        "Компания " + companyName + " имеет годовой доход равный " + annualIncome + " рублей"
+            + " и процент на рынке равный: " + share + " процентов.");
+            
+    System.out.println("Задание 6");
+    char RhFactor = 'R';
+    int bloodType = 2;
+    long populationBlood = 7_724_698L;
+    System.out.println("Резус-фактор " + RhFactor + "," + " группа крови " + bloodType + ","
+        + " население с такой группой крови составляет: " + populationBlood + " человек.");
+        
+    System.out.println("Задание 7");
+    String universityName = "МИИТ";
+    int numberOfStudents = 5000;
+    float shareOfDeducted = 9.87f;
+    System.out.println(
+        "В университете " + universityName + " учится " + numberOfStudents + " студентов,"
+            + " количество отчисленных в год составляет: " + shareOfDeducted + " процентов.");
+            
+    System.out.println("Задание 8");
+    char movieRating = 'R';
+    byte numberOfGoodsProduced = 25;
+    double rating = 8.7;
+    System.out.println("Курс Джава для начинающих, имеет рейтинг " + movieRating + ","
+        + " количество просматривающих составляет " + numberOfGoodsProduced + " человек, "
+        + "рейтинг курса равен " + rating + ".");
+        
+    System.out.println("Задание 9");
+    String brand = "Spar";
+    long countOfGoods = 98_878_951L;
+    double rateOfProduced = 9.1;
+    System.out.println(
+        "Бренд " + brand + " продал своего товара на сумму " + countOfGoods +
+            " рублей, что составляет "
+            + rateOfProduced + " процента, по стране в направление розничной торговли.");
+            
+    System.out.println("Задание 10");
+    char CategoryOfGoods = 'c';
+    long barcode = 21001000106485L;
+    byte percent = 24;
+    System.out.println("Категория товара " + CategoryOfGoods + "," + " штрих-код " + barcode + ","
+        + " процент покупающих до 30 лет граждан составляет " + percent + " процентов");
+  }
+}
