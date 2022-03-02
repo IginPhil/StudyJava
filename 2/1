@@ -1,0 +1,82 @@
+public class Main {
+  // Определение индексов в массиве которые делятся на 2
+  public static void main(String[] args) {
+    int[] number = {3, 22, 1, 13, 4, 6, 16, 5};
+    for (int i = 0; i < number.length; i++) {
+      if (number[i] % 2 == 0) {
+        System.out.println(i);
+      }
+    }
+  }
+}
+
+//3.1. Задание
+public class Main {
+  // Определение элементов в массиве которые делятся на 2
+  public static void main(String[] args) {
+    int[] number = {3, 22, 1, 13, 4, 6, 16, 5};
+    for (int numbers : number) {
+      if (numbers % 2 != 0) {
+        continue;
+      }
+      System.out.println(numbers);
+    }
+  }
+}
+
+//3.2 Задание
+public class Main {
+  // Определение двузначных элементов в массиве
+  public static void main(String[] args) {
+    int[] number = {3, 22, 1, 13, 4, 6, 16, 5};
+    for (int i = 0; i < number.length; i++) {
+      if (number[i] > 9 && number[i] < 99) {
+        System.out.println(number[i]);
+      }
+    }
+  }
+}
+
+//3.3
+public class Main {
+  // Определение максимального элемента в массиве
+  public static void main(String[] args) {
+    int[] number = {3, 22, 1, 13, 4, 6, 16, 5};
+    int maxNum = number[0];
+    for (int i : number) {
+      if (i > maxNum) {
+        maxNum = i;
+      }
+    }
+    System.out.println("Максимальный элемент: " + maxNum);
+  }
+}
+
+//3.4 Задание
+public class Main {
+  // Определение суммы элементов в массиве
+  public static void main(String[] args) {
+    int[] number = {3, 22, 1, 13, 4, 6, 16, 5};
+    int sum = 0;
+    for (int i = 0; i < number.length; i++) {
+      sum = sum + number[i];
+    }
+    System.out.println(sum);
+  }
+}
+
+// 3.5 Задание
+public class Main {
+  // перерворачивание массива
+  public static void main(String[] args) {
+    int[] number = {3, 22, 1, 13, 4, 6, 16, 5};
+    int[] number2 = new int[number.length];
+    for (int i = number.length - 1; i > 0; ) {
+      for (int j = 0; j < number2.length; j++) {
+        number2[j] = number[i];
+        i--;
+        System.out.println(number2[j]);
+      }
+    }
+  }
+}
