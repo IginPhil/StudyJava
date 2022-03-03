@@ -1,0 +1,70 @@
+public class Main {
+
+    public static void main(String[] args) {
+        Bus bus = new ElectricBus(0.001, 0.1); //создаем обьект класса Bus, в параметре указываем потрбеление топлива (1000км)
+        bus.refuel(1); // заправляем автобус до полного бака
+        System.out.println("Резерв топлива " + bus.powerReserve());// выводим резерв тоалива на экран
+        System.out.println("Едем 50 км " + bus.run(50));
+        System.out.println("Резерв топлива " + bus.powerReserve());// выводим резерв тоалива на экран
+        System.out.println("Едем 900 км " + bus.run(900));
+        System.out.println("Резерв топлива " + bus.powerReserve());// выводим резерв тоалива на экран
+        System.out.println("Едем 100 км " + bus.run(100));
+    }
+}
+
+public abstract class Bus { // Класс родитель от которого будем проводить наследование
+
+    private double tankFullnessRate; // Приватная переменная указывающая асколько заполнен топливный бак 0-1, где 0 -пустой, 0,5 - половина, 1 полный бак.
+    private final double consumpionRate; //Приватная переменная расход топлива на 1 км то есть если расход 0.01 то бака хватит на 100 км.
+
+    public Bus(double consumpionRate) {
+        this.consumpionRate = consumpionRate;
+        // Конструктор с единственным парметром consumpionRate поскольку перменная установлена при созании класса как final она установлена и больше не меняется, то есть для каждого последюущего автобуса расход топлива будет зафиксирован.
+    }
+
+    public boolean run(int distance) { //метод Ран с парметром Дистанс в нем провремяется хватит ли топлива на проезд этого растояния, если хатает true, если нет то false
+        if (powerReserve() < distance) {
+            return false;
+        }
+        tankFullnessRate = tankFullnessRate - (distance * consumpionRate); //из перменной объема топливного бака будет вычитаться расход топлива умноженный на растояние
+        return true;
+    }
+
+    public final void refuel(double tankRate) { //метод Рефьюил с параметром объем бака, так же прописана защита о переполнения бак, если попытаться заправить бак больше чем на 100 процентов он заправится на 100 процентов
+        double total = tankFullnessRate + tankRate;
+        tankFullnessRate = total > 1 ? 1 : total;
+    }
+
+    public int powerReserve() {
+        return (int) (tankFullnessRate / consumpionRate);
+    } // Метод Паувер резерв он расчитвает на какое количество километров хватит запаса топлива = запас топлива / расход топлива
+
+    public double getConsumpionRate() {
+        return consumpionRate;
+    } // Геттер возвращает уровень  потребления топлива - поскольку перменные приватные
+
+    public double getTankFullnessRate() {
+        return tankFullnessRate;
+    } // Геттер возвращает степень наполнености бака - поскольку перменные приватные
+
+    public abstract int PowerReserve();
+}
+
+public class ElectricBus extends Bus { // наследование от класса Bus
+    public final double minimalTankFullnessRate; // Минимальное содержание батареи ниже которого автобус работать не будет
+
+
+    public ElectricBus(double consumpionRate, double minimalTankFullnessRate) { //конструктор класса родителя который передает из класса Bus, мы его добавляемв параметр
+        super(consumpionRate);
+        this.minimalTankFullnessRate = minimalTankFullnessRate; // после появления его указываем в конструкторе
+    }
+
+    @Override // переопрделяем метод так как при разрядке акумулятора в ноль электробус быстро сломается
+    public int PowerReserve() {
+        double remaingRate = getTankFullnessRate() - minimalTankFullnessRate; // сколько заряда мы можем использовать считается как из полного уровная вычитаем минимальный запас
+        if (remaingRate <= 0) { // если отрицательно или равно нулю то электробус никуда не едет.
+            return 0;
+        }
+        return (int) (remaingRate / getConsumpionRate()); // полный заряд делим на уровень потрбления
+    }
+}
